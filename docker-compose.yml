@@ -1,0 +1,49 @@
+
+services:
+  app: # Your Node.js application service
+    build:
+      context: . # Use the Dockerfile in the current directory
+      dockerfile: Dockerfile
+    container_name: traffic_redirector_app
+    ports:
+      - "3000:3000" # Map host port 3000 to container port 3000
+    depends_on:
+      - redis # Ensure Redis starts before the app
+    environment:
+      # These will override .env file values loaded by dotenv if it loads first
+      # or provide them if .env is not available in the container.
+      # For production, manage these securely (e.g., Docker secrets, external config).
+      NODE_ENV: production # Set to production for Docker builds typically
+      PORT: 3000
+      REDIS_URL: redis://redis:6379 # 'redis' is the service name of the Redis container
+      AFFILIATE_BASE_URL: ${AFFILIATE_BASE_URL:-https://affiliate-network.com} # Use host env var or default
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      # Add other env vars from your .env file if needed by the app at runtime
+      # REDIS_RETRY_BASE_DELAY: ${REDIS_RETRY_BASE_DELAY:-250}
+      # ... and so on for other resilience configs
+    volumes:
+      # For development, you might mount your source code to enable hot reloading
+      # But for production builds from the Dockerfile, this is usually not needed.
+      # If you want logs persisted outside the container:
+      - ./logs:/usr/src/app/logs # Mounts the host ./logs to container's /usr/src/app/logs
+    restart: unless-stopped # Or 'always'
+    networks:
+      - traffic_network
+
+  redis: # Your Redis service
+    image: "redis:7-alpine" # Use a specific version, alpine for smaller size
+    container_name: traffic_redirector_redis
+    ports:
+      - "6379:6379" # Map host port to container port (optional if only app needs access)
+    volumes:
+      - redis_data:/data # Persist Redis data
+    restart: unless-stopped
+    networks:
+      - traffic_network
+
+volumes: # Define named volumes
+  redis_data: # Persists data even if the redis container is removed and recreated
+
+networks: # Define custom network
+  traffic_network:
+    driver: bridge

@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Or newer like ES2022
+    "module": "commonjs",
+    "lib": ["ES2020", "DOM"], // Add DOM if you might ever use web APIs, otherwise optional
+    "outDir": "./dist", // Output directory for compiled JavaScript
+    "rootDir": "./src", // Root directory of source files
+    "strict": true, // Enables all strict type-checking options
+    "esModuleInterop": true, // Enables interoperability between CommonJS and ES Modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true, // Allows importing JSON files
+    "moduleResolution": "node",
+    "sourceMap": true, // Generate source maps for debugging
+    // "baseUrl": "./src", // Optional: Allows for absolute paths from src
+    // "paths": { // Optional: Path mapping
+    //   "@config/*": ["config/*"],
+    //   "@services/*": ["services/*"],
+    //   "@controllers/*": ["controllers/*"],
+    //   "@routes/*": ["routes/*"],
+    //   "@middleware/*": ["middleware/*"],
+    //   "@utils/*": ["utils/*"],
+    //   "@lib/*": ["lib/*"]
+    // }
+  },
+  "include": [
+    "src/**/*.ts" // Which files to include in compilation
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts" // Exclude test files if you have them
+  ]
+}

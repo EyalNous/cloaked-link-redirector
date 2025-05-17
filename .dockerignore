@@ -1,0 +1,30 @@
+# Docker related files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Git
+.git
+.gitignore
+
+# Node.js
+node_modules
+npm-debug.log
+*.log
+logs/ # Log files should be mounted as volumes or handled by logging drivers
+
+# Build artifacts (if they exist locally before build inside Docker)
+dist
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Environment files (these should be passed at runtime, not baked into the image)
+.env
+.env.*
+!.env.example # You might want to include an example env file
+
+# IDE / Editor specific
+.vscode/
+.idea/
