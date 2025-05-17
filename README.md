@@ -249,7 +249,7 @@ Success Response (200 OK):
 
 Error Responses: 400 Bad Request, 404 Not Found, 500 Internal Server Error, 503 Service Unavailable.
 
-##Logging
+## Logging
 
 The application uses Winston for structured JSON logging.
 
@@ -285,7 +285,7 @@ Running Tests (Placeholder)
 
 This command is a placeholder. Comprehensive unit, integration, and end-to-end tests should be implemented for a production-grade application.
 
-##Future Enhancements / Real-World Considerations
+## Future Enhancements / Real-World Considerations
 
 Link health checker: Periodically scan a sample of ptk:* keys in Redis.
 
@@ -293,7 +293,7 @@ Comprehensive Automated Testing: Implement a full suite of tests (unit, integrat
 
 Advanced Input Validation: Utilize a dedicated library (e.g., Joi, Zod, class-validator) for more robust and declarative validation of API request inputs.
 
-##Security Hardening:
+## Security Hardening:
 
 Implement authentication and authorization for sensitive endpoints like /refresh and potentially /retrieve_original (e.g., API keys, JWT).
 
