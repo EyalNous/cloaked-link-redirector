@@ -28,7 +28,7 @@ Built with Node.js, TypeScript, Express.js, Redis, and Dockerized for easy setup
 ## Project Structure
 
 The project follows a standard Node.js/TypeScript application structure:
-<pre> ```
+<pre> 
 traffic-redirector-ts/
 ├── dist/ # Compiled JavaScript output (used inside Docker image)
 ├── logs/ # Application log files (can be volume-mounted from Docker)
@@ -49,7 +49,7 @@ traffic-redirector-ts/
 ├── package.json
 ├── package-lock.json
 └── tsconfig.json
-     ``` </pre>
+ </pre>
 
 ## Prerequisites
 
