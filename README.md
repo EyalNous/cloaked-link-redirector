@@ -263,7 +263,7 @@ logs/error.log: Critical error messages.
 
 During local development (npm run dev), logs are also output to the console.
 
-##Configuration
+## Configuration
 
 Application behavior is primarily configured through environment variables, documented in .env.example. Key variables include:
 
