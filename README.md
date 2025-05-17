@@ -122,7 +122,7 @@ If  you  want  to  also  remove  the  named  volume  used  by  Redis (which cont
 
     docker-compose  down  -v
 
-(Optional) Running  the  Node.js  App  Locally (Outside Docker)
+## Running  the  Node.js  App  Locally (Outside Docker)
 
 For  development  or  debugging,  you  might  want  to  run  the  Node.js  application  directly  on  your  host  machine  while  still  using  Docker  for  the  Redis  instance.
 
@@ -153,7 +153,7 @@ For a production-like start using compiled code:
 
 The application will connect to the Redis instance running in Docker.
 
-API Endpoints
+## API Endpoints
 
 All API endpoints are prefixed with /api/v1.
 
